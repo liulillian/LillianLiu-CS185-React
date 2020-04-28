@@ -1,0 +1,149 @@
+/* style.css for LillianLiu-CS185 */
+
+/* Site-Wide Styles */
+body {
+	background-image: url("Components/images/BG-tealfloral.png");
+	padding: 0px 20px 5px 20px; /*top right bottom left*/
+}
+.body-block {
+	background-color: rgba(211,229,220,0.7);
+	padding: 10px 10px 10px 10px;
+  margin: 0px 0px 15px 0px;
+  border-radius: 15px;
+	font-family: Georgia, serif;
+	font-size: 17px;
+}
+.body-block > .block-content {
+	padding: 0px 10px 5px 10px;
+  justify-self: center;
+  align-self: center;
+}
+
+
+/* Header */
+.header {
+	padding: 0 0 10px 0;
+}
+.header > .title {
+	padding: 20px 0 0 0;
+  margin: 0px;
+	color: Teal;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 2.5em;
+  font-weight: bold;
+}
+
+
+/* nav-bar */
+.nav-bar {
+  background-color: rgba(175,213,193,0.8);
+  padding: 0 15px 0 15px;
+  border-radius: 15px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 20px;
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center; /*horizontal*/
+  align-items: center; /*vertical*/
+}
+.tab {
+  padding: 10px 20px 10px 20px;
+  margin: 0px 20px 0px 20px;
+  border-radius: 10px 10px 0 0; /* top-left then clockwise */
+}
+.nav-bar > .image {
+  padding: 0px 0px 0px 0px;
+}
+.nav-bar > .image:hover {
+  background-color: rgba(0,0,0,0);
+}
+
+
+/* Home */
+.Home > #intro {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.Home > .body-block > .text-section {
+  flex-shrink: 3;
+}
+.Home > .body-block > .block-content > .image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  justify-self: center;
+  align-self: center;
+  flex-grow: 3;
+}
+
+
+/* Gallery */
+.image-grid {
+  display: grid;
+  /* The following line from https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/ */
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  grid-gap: 1rem;
+}
+.image-grid > .image {
+  cursor: pointer;
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  justify-self: center;
+  align-self: center;
+}
+.image-grid > .vert { grid-row: span 2; }
+
+
+/* Videos */
+.video-grid {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+
+/* About Me */
+#main-about-me {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.AboutMe > .body-block > .text-section {
+  flex-shrink: 3;
+}
+.AboutMe > .body-block > .block-content > .image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  justify-self: center;
+  align-self: center;
+  flex-grow: 3;
+}
+
+
+/* Links */
+#main-extlinks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+#main-extlinks > .block-content {
+  padding: 0px 20px 0px 20px;
+  text-align: center;
+}
+
+
+
