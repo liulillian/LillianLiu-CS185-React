@@ -1,27 +1,22 @@
 //App.js
-import React, {Component} from 'react';
+import React, {Component, useState, useEffect} from 'react';
 import SimpleReactLightbox from 'simple-react-lightbox';
 import ScrollUpButton from 'react-scroll-up-button';
 import './App.css';
 import Header from './Components/Header';
 import TabList from './Components/TabList';
 import Body from './Components/Body';
+//const firebase = require('firebase');
 
-export class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      activeTabId: 1
-    }
+//export class App extends Component {
+export function App (props) {
+  const [activeTabId, setActiveTabId] = useState(1);
+  
+  const changeTab = (tabId) => {
+    setActiveTabId(tabId);
   }
   
-  changeTab = (tabId) => {
-    this.setState({
-      activeTabId: tabId
-    })
-  }
-  
-  render() {
+  //render() {
     const tabs = [
       {id: 1, title: 'Home'},
       {id: 2, title: 'Gallery'},
@@ -34,31 +29,31 @@ export class App extends Component {
       <div className="body">
         <SimpleReactLightbox>
           <div className="header">
-            <Header className="header" activeTabId={this.state.activeTabId} />
+            <Header className="header" activeTabId={activeTabId} />
           </div>
           <div className="nav-bar">
             <img
               className="elem image"
               src={require("./Components/images/lilysprite.png")}
               alt="Pixel lily and lily pad logo."
-              onClick={() => this.changeTab(1)}
+              onClick={() => changeTab(1)}
               style={{cursor:'pointer'}}
             />
             <TabList
               tabs={tabs}
-              changeTab={this.changeTab}
-              activeTabId={this.state.activeTabId}
+              changeTab={changeTab}
+              activeTabId={activeTabId}
             />
           </div>
           <div className="main-body">
-            <Body activeTabId={this.state.activeTabId} />
+            <Body activeTabId={activeTabId} />
           </div>
         </SimpleReactLightbox>
         
         <ScrollUpButton/>
       </div>
     );
-  }
+  //}
 }
 
 export default App;
