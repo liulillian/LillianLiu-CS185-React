@@ -21,7 +21,7 @@ export function App (props) {
     }
     
     //get a reference to the database
-    let ref = firebase.database().ref('data')
+    let ref = firebase.database().ref('testdata')
     //retrieve its data
     ref.on('value', snapshot => {
       //this is your call back function
