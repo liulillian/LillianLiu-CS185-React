@@ -146,4 +146,15 @@ body {
 }
 
 
+/* GuestBook */
+#main-guestbook {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+#main-guestbook > .block-content {
+  padding: 0px 20px 0px 20px;
+  text-align: center;
+}
 

@@ -32,14 +32,27 @@ export function GuestBook (props) {
   return (
     <div className='GuestBook'>
       
-      <div class="body-block" id="main-extlinks">
-        <div class="block-content">
-          <div><h2>Social Media</h2></div>
-          <div class="elem"><h3>{testdata}</h3></div> <br/>
+      <div className="body-block" id="main-guestbook">
+        <div className="block-content" id="GuestBookForm">
+          <div><h2>Write a Message!</h2></div>
+          <form>
+            <input type="text" name="username" placeholder="Name" />
+            <input type="text" name="message" placeholder="Message" />
+            <button>Publish</button>
+          </form>
         </div>
-        <div class="block-content">
+        
+        <div className="block-content" id="GuestBookHistory">
+          <div><h2>Published Messages:</h2></div>
+          <div className="elem">
+            <ul>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="block-content">
           <div><h2>External Links</h2></div>
-          <div class="elem">
+          <div className="elem">
             {sampleArray.map((s,index) => (
               <p>
                 Displaying...<br/>
@@ -47,10 +60,6 @@ export function GuestBook (props) {
               </p>
             ))}
           </div>
-        </div>
-        <div class="block-content">
-          <div><h2>Mapping JSON?</h2></div>
-          <div class="elem">Still TODO</div>
         </div>
       </div>
         
