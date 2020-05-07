@@ -30,39 +30,36 @@ export function GuestBook (props) {
   }, [shouldRender])
   
   return (
-    <div className='GuestBook'>
+    <div id='GuestBook'>
+      <div className="body-block">
+        <div className="block-content">
+          <div><p>Send a private message to the website administrator(s), or post a public message saying hi!</p></div>
+        </div>
+      </div>
       
-      <div className="body-block" id="main-guestbook">
-        <div className="block-content" id="GuestBookForm">
+      <div id="main-guestbook">
+        <div className="body-block"><div className="block-content" id="GuestBookForm">
           <div><h2>Write a Message!</h2></div>
           <form>
-            <input type="text" name="username" placeholder="Name" />
-            <input type="text" name="message" placeholder="Message" />
+            *<input type="text" name="username" placeholder="Name" /><br/>
+            <input type="text" name="description" placeholder="Describe yourself..." /><br/>
+            *<input type="text" name="message" placeholder="Message..." /><br/>
+            Make this message public?<input type="checkbox" name="public" /><br/>
+            <input type="text" name="email" placeholder="Email" /><br/>
             <button>Publish</button>
           </form>
-        </div>
-        
-        <div className="block-content" id="GuestBookHistory">
+        </div></div>
+          
+        <div className="body-block"><div className="block-content" id="GuestBookHistory">
           <div><h2>Published Messages:</h2></div>
           <div className="elem">
             <ul>
+            
             </ul>
           </div>
-        </div>
-        
-        <div className="block-content">
-          <div><h2>External Links</h2></div>
-          <div className="elem">
-            {sampleArray.map((s,index) => (
-              <p>
-                Displaying...<br/>
-                {s}
-              </p>
-            ))}
-          </div>
-        </div>
+        </div></div>
       </div>
-        
+      
     </div>
   );
 }

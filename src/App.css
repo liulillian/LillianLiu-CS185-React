@@ -157,4 +157,30 @@ body {
   padding: 0px 20px 0px 20px;
   text-align: center;
 }
+#GuestBookForm {
+  width: 35vw;
+  height: auto;
+  overflow: auto;
+}
+input {
+  padding: 10px 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  width: 80%;  
+}
+#GuestBookForm > form > button {
+  border-radius: 10px;
+  width: 80px;
+  height: 40px;
+  font-size: 1em;
+}
+#GuestBookHistory {
+  width: 50vw;
+  height: 60vh;
+}
+
+
+
+
+
 
