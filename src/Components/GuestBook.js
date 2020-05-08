@@ -1,51 +1,82 @@
 //GuestBook.js
-import React, {Component, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import config from '../config.js';
 const firebase = require('firebase');
 
 export function GuestBook (props) {
   const [testdata, setTestdata] = useState("nothing yet");
-  const [publicpost, setPublicpost] = useState(false);
-  const [username, setUsername] = useState("nothing yet");
-  const [description, setDescription] = useState("nothing yet");
-  const [message, setMessage] = useState("nothing yet");
-  const [email, setEmail] = useState("nothing yet");
-  
   const [shouldRender, setShouldRender] = useState(true);
+  const [formState, setFormState] = useState({
+    publicpost: false,
+    username: "",
+    description: "",
+    message: "",
+    email: "",
+    timestamp: firebase.database.ServerValue.TIMESTAMP
+  });
+  const [publicPosts, setPublicPosts] = useState("nothing yet");
   
-  const sampleArray = ['hi','hello','how are you'];
-
   useEffect(() => {
     if (!firebase.apps.length) {
-     firebase.initializeApp(config)
+     firebase.initializeApp(config);
     }
-    
-    //get a reference to the database
-    let ref1 = firebase.database().ref('testdata')
-    let ref2 = firebase.database().ref('firebaseArray')
-    //retrieve its data
-    ref1.on('value', snapshot => {
-      const state = snapshot.val()
-      setTestdata(state)
-    })
-    ref2.on('value', snapshot => {
-      const state = snapshot.val()
-      setTestdata(state)
-    })
+    //test value
+    let testref = firebase.database().ref("testdata");
+    testref.on("value", (snapshot) => {
+      const state = snapshot.val();
+      setTestdata(state);
+    });
+    //list of public posts
+    let publicRef = firebase.database().ref("publicPosts");
+    publicRef.on("value", (snapshot) => {
+      let snapshotPublicPosts = snapshot.val();
+      let arrPublicPosts = [];
+      for (let publicPostID in snapshotPublicPosts) {
+        arrPublicPosts.push({
+          username: snapshotPublicPosts[publicPostID].username,
+          description: snapshotPublicPosts[publicPostID].description,
+          message: snapshotPublicPosts[publicPostID].message,
+          timestamp: snapshotPublicPosts[publicPostID].timestamp
+        });
+      }
+      console.log(arrPublicPosts);
+      //setPublicPosts(arrPublicPosts);
+      setShouldRender(false);
+      tempUpdater();
+    });
   }, [shouldRender])
   
-  const handleSubmit = (tabId) => {
-    e.preventDefault();
-    const itemsRef = firebase.database().ref('items');
-    const item = {
-      title: this.state.currentItem,
-      user: this.state.username
+  const tempUpdater = (event) => {
+    console.log("Running updater");
+    setPublicPosts("updated");
+    console.log(publicPosts);
+  }
+  
+  const handleChangeCheckbox = (event) => {
+    let tempFormState = formState;
+    tempFormState[event.target.name] = event.target.checked;
+    setFormState(tempFormState);
+    //console.log(formState);
+  }
+  const handleChange = (event) => {
+    let tempFormState = formState;
+    tempFormState[event.target.name] = event.target.value;
+    setFormState(tempFormState);
+    //console.log(formState);
+  }
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    
+    if (formState["publicpost"]) {
+      const publicRef = firebase.database().ref("publicPosts");
+      publicRef.push(formState);
+    } else {
+      const privateRef = firebase.database().ref("privatePosts");
+      privateRef.push(formState);
+      alert("Your message has been sent!");
     }
-    itemsRef.push(item);
-    this.setState({
-      currentItem: '',
-      username: ''
-    });
+    document.getElementById("actualForm").reset();
   }
   
   return (
@@ -59,32 +90,42 @@ export function GuestBook (props) {
       <div id="main-guestbook">
         <div className="body-block" id="GuestBookForm"><div className="block-content">
           <div><h2>Write a Message!</h2></div>
-          <form onSubmit={handleSubmit}> {/*Still reloads the page on submit, sadly*/}
+          <form id="actualForm" onSubmit={(event) => handleSubmit(event)}>
             <label for="publicpost">Make this message public?</label>
-            <input type="checkbox" name="publicpost" /><br/>
+            <input type="checkbox"
+              name="publicpost"
+              onChange={(event) => handleChangeCheckbox(event)}
+            /><br/>
             <label for="username">*</label>
             <input type="text"
               name="username"
               placeholder="Name... (min 5, max 20 characters)"
-              minlength="5"
-              maxlength="20"
+              minLength="5"
+              maxLength="20"
               required
+              onChange={(event) => handleChange(event)}
             /><br/>
             <input type="text"
               name="description"
               placeholder="Describe yourself... (max 100 characters)"
-              maxlength="100"
+              maxLength="100"
+              onChange={(event) => handleChange(event)}
             /><br/>
             <label for="message">*</label>
             <textarea
               name="message"
               placeholder="Message... (min 15, max 500 characters)"
               rows="3"
-              minlength="15"
-              maxlength="500"
+              minLength="15"
+              maxLength="500"
               required
+              onChange={(event) => handleChange(event)}
             /><br/>
-            <input type="text" name="email" placeholder="Email (not published)" /><br/>
+            <input type="text"
+              name="email"
+              placeholder="Email (not published)"
+              onChange={(event) => handleChange(event)}
+            /><br/>
             <input type="submit" value="Publish" />
           </form>
         </div></div>
@@ -93,7 +134,7 @@ export function GuestBook (props) {
           <div><h2>Published Messages:</h2></div>
           <div className="elem">
             <ul>
-              <li>test</li>
+              <li>{testdata}</li>
               <li>test</li>
               <li>test</li>
               <li>test</li>

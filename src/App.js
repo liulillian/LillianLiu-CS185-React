@@ -1,9 +1,8 @@
 //App.js
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import SimpleReactLightbox from 'simple-react-lightbox';
 import ScrollUpButton from 'react-scroll-up-button';
 import './App.css';
-import config from './config.js';
 import Header from './Components/Header';
 import TabList from './Components/TabList';
 import Body from './Components/Body';

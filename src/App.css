@@ -182,7 +182,7 @@ input[type=checkbox] {
   width: 18px;
   height: 18px;
 }
-input[type=button] {
+input[type=submit] {
   margin: 10px 0 0 0;
   border-radius: 10px;
   width: 80px;
@@ -190,7 +190,7 @@ input[type=button] {
   font-size: 1em;
   background-color: rgba(175,213,193,1);
 }
-input[type=button]:hover {
+input[type=submit]:hover {
   cursor: pointer;
   background-color: rgba(226,245,228,1);
 }
