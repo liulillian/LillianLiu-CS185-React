@@ -1,4 +1,5 @@
 //GuestBook.js
+// Followed tutorial from https://css-tricks.com/intro-firebase-react/ as a base
 import React, {useState, useEffect} from 'react';
 import config from '../config.js';
 const firebase = require('firebase');
@@ -6,6 +7,7 @@ const firebase = require('firebase');
 export function GuestBook (props) {
   const [testdata, setTestdata] = useState("nothing yet");
   const [shouldRender, setShouldRender] = useState(true);
+  const [publicPosts, setPublicPosts] = useState([]);
   const [formState, setFormState] = useState({
     publicpost: false,
     username: "",
@@ -14,7 +16,6 @@ export function GuestBook (props) {
     email: "",
     timestamp: firebase.database.ServerValue.TIMESTAMP
   });
-  const [publicPosts, setPublicPosts] = useState("nothing yet");
   
   useEffect(() => {
     if (!firebase.apps.length) {
@@ -31,6 +32,7 @@ export function GuestBook (props) {
     publicRef.on("value", (snapshot) => {
       let snapshotPublicPosts = snapshot.val();
       let arrPublicPosts = [];
+      
       for (let publicPostID in snapshotPublicPosts) {
         arrPublicPosts.push({
           username: snapshotPublicPosts[publicPostID].username,
@@ -39,18 +41,9 @@ export function GuestBook (props) {
           timestamp: snapshotPublicPosts[publicPostID].timestamp
         });
       }
-      console.log(arrPublicPosts);
-      //setPublicPosts(arrPublicPosts);
-      setShouldRender(false);
-      tempUpdater();
+      setPublicPosts(arrPublicPosts);
     });
   }, [shouldRender])
-  
-  const tempUpdater = (event) => {
-    console.log("Running updater");
-    setPublicPosts("updated");
-    console.log(publicPosts);
-  }
   
   const handleChangeCheckbox = (event) => {
     let tempFormState = formState;
@@ -71,10 +64,11 @@ export function GuestBook (props) {
     if (formState["publicpost"]) {
       const publicRef = firebase.database().ref("publicPosts");
       publicRef.push(formState);
+      alert("Your message has been posted!")
     } else {
       const privateRef = firebase.database().ref("privatePosts");
       privateRef.push(formState);
-      alert("Your message has been sent!");
+      alert("Your message has been sent to the website administrator!");
     }
     document.getElementById("actualForm").reset();
   }
@@ -99,25 +93,25 @@ export function GuestBook (props) {
             <label for="username">*</label>
             <input type="text"
               name="username"
-              placeholder="Name... (min 5, max 20 characters)"
-              minLength="5"
-              maxLength="20"
+              placeholder="Name... (min 6, max 19 characters)"
+              minLength="6"
+              maxLength="19"
               required
               onChange={(event) => handleChange(event)}
             /><br/>
             <input type="text"
               name="description"
-              placeholder="Describe yourself... (max 100 characters)"
-              maxLength="100"
+              placeholder="Describe yourself... (max 99 characters)"
+              maxLength="99"
               onChange={(event) => handleChange(event)}
             /><br/>
             <label for="message">*</label>
             <textarea
               name="message"
-              placeholder="Message... (min 15, max 500 characters)"
+              placeholder="Message... (min 16, max 499 characters)"
               rows="3"
-              minLength="15"
-              maxLength="500"
+              minLength="16"
+              maxLength="499"
               required
               onChange={(event) => handleChange(event)}
             /><br/>
@@ -133,29 +127,17 @@ export function GuestBook (props) {
         <div className="body-block" id="GuestBookHistory"><div className="block-content">
           <div><h2>Published Messages:</h2></div>
           <div className="elem">
-            <ul>
-              <li>{testdata}</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
-              <li>test</li>
+            <ul id="publicPostList">
+              {publicPosts.map((publicPost) => { // <-----------------  MAP FUNCTION IS HERE!!!!!
+                let timeDisplay = new Intl.DateTimeFormat('en-US', {year:'numeric', month:'2-digit', day:'2-digit', hour:'numeric', minute:'2-digit'}).format(publicPost.timestamp);
+                return (
+                  <li key={publicPost.id}>
+                    <h4>{publicPost.username} <span class="subtitle">{timeDisplay}</span></h4>
+                    <p class="description">{publicPost.description}</p>
+                    <p class="message">{publicPost.message}</p>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div></div>

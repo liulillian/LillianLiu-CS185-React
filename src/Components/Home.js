@@ -20,11 +20,10 @@ export class Home extends Component {
         <div className="body-block" id="whats-new">
           <div className="block-content">
             <div className="section-title">
-              <div><h2>What's New</h2></div>
-              <div><p><i>Sunday April 26, 2020</i></p></div>
+              <div><h2>What's New <span class="subtitle">Thursday May 7, 2020</span></h2></div>
             </div>
             <div>
-              <p>The entire site has been rebuilt using ReactJS. Enjoy the smoother tab transitions!</p>
+              <p>The Guest Book is now available. Drop by and send me a message, or say hi to everyone!</p>
             </div>
           </div>
         </div>
