@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 
 export class Tab extends Component {
   markActiveTab = () => {
-    console.log("triggered");
     if (this.props.tabInfo.id == this.props.activeTabId) {
       return {
         cursor: 'pointer',

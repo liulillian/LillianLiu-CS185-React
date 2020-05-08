@@ -12,11 +12,28 @@ body {
   border-radius: 15px;
 	font-family: Georgia, serif;
 	font-size: 17px;
+  overflow-wrap: break-word;
 }
 .body-block > .block-content {
 	padding: 0px 10px 5px 10px;
   justify-self: center;
   align-self: center;
+}
+h4 {
+  font-size: 19px;
+  margin: 0;
+}
+p {
+  margin: 10px 0 10px 0;
+}
+ul {
+  padding: 0;
+}
+li {
+  background-color: rgba(175,213,193,0.8);
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  margin: 5px 0 5px 0;
 }
 
 
@@ -50,7 +67,7 @@ body {
   align-items: center; /*vertical*/
 }
 .tab {
-  padding: 10px 20px 10px 20px;
+  padding: 10px 10px 10px 10px;
   margin: 0px 20px 0px 20px;
   border-radius: 10px 10px 0 0; /* top-left then clockwise */
 }
@@ -146,4 +163,74 @@ body {
 }
 
 
+/* GuestBook */
+#main-guestbook {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  grid-template-rows: 68vh;
+  grid-gap: 1rem;
+}
+#main-guestbook > .body-block {
+  padding: 0px 20px 0px 20px;
+  overflow: auto;
+}
+
+#GuestBookForm {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+input {
+  padding: 8px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  width: 80%;
+}
+input[type=text] {
+  border-radius: 10px;
+}
+textarea {
+  min-width: 150px;
+  max-width: 500px;
+  min-height: 30px;
+  max-height: 300px;
+  padding: 8px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  width: 80%;
+  border-radius: 10px;
+}
+input[type=checkbox] {
+  width: 18px;
+  height: 18px;
+}
+input[type=submit] {
+  margin: 10px 0 0 0;
+  border-radius: 10px;
+  width: 80px;
+  height: 40px;
+  font-size: 1em;
+  background-color: rgba(175,213,193,1);
+}
+input[type=submit]:hover {
+  cursor: pointer;
+  background-color: rgba(226,245,228,1);
+}
+
+#publicPostList {
+  list-style: none;
+}
+.subtitle {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 14px;
+}
+.description {
+  padding: 0;
+  margin: 0;
+  font-style: italic;
+  font-size: 16px;
+}
+.message {
+  margin-left: 10px;
+}
 

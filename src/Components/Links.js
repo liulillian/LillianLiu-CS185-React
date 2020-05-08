@@ -14,7 +14,7 @@ export class Links extends Component {
           </div>
           <div class="block-content">
             <div><h2>External Links</h2></div>
-            <div class="elem"><a href="https://github.com/liulillian/LillianLiu-CS185">Site GitHub</a></div> <br/>
+            <div class="elem"><a href="https://github.com/liulillian/LillianLiu-CS185-React">Site GitHub</a></div> <br/>
             <div class="elem"><a href="https://gauchospace.ucsb.edu/courses/course/view.php?id=76596">CMPSC 185 Course Website</a></div> <br/>
           </div>
         </div>
