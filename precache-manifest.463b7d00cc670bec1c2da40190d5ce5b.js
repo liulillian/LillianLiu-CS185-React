@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7803b7689930d1839560a8abed0b1c43",
+    "revision": "8eeb7eae406962f089d5076d394b65d5",
     "url": "/LillianLiu-CS185-React/index.html"
   },
   {
-    "revision": "15af3b28df905de13d93",
-    "url": "/LillianLiu-CS185-React/static/css/main.b53785af.chunk.css"
+    "revision": "519e18307ea13d0d07cc",
+    "url": "/LillianLiu-CS185-React/static/css/main.3df546ce.chunk.css"
   },
   {
-    "revision": "957308e8faaf5fc74258",
-    "url": "/LillianLiu-CS185-React/static/js/2.8144bc12.chunk.js"
+    "revision": "28eae0736ba03cc1ba61",
+    "url": "/LillianLiu-CS185-React/static/js/2.5e6047da.chunk.js"
   },
   {
-    "revision": "04007fcd50e895bcbb2b21327be92c6e",
-    "url": "/LillianLiu-CS185-React/static/js/2.8144bc12.chunk.js.LICENSE.txt"
+    "revision": "01fef312c49c91e5646b45e7b647909d",
+    "url": "/LillianLiu-CS185-React/static/js/2.5e6047da.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "15af3b28df905de13d93",
-    "url": "/LillianLiu-CS185-React/static/js/main.464d7bde.chunk.js"
+    "revision": "519e18307ea13d0d07cc",
+    "url": "/LillianLiu-CS185-React/static/js/main.0beccfa5.chunk.js"
   },
   {
     "revision": "586e600648c783edf91a",

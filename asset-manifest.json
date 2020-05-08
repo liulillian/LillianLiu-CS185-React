@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/LillianLiu-CS185-React/static/css/main.b53785af.chunk.css",
-    "main.js": "/LillianLiu-CS185-React/static/js/main.464d7bde.chunk.js",
-    "main.js.map": "/LillianLiu-CS185-React/static/js/main.464d7bde.chunk.js.map",
+    "main.css": "/LillianLiu-CS185-React/static/css/main.3df546ce.chunk.css",
+    "main.js": "/LillianLiu-CS185-React/static/js/main.0beccfa5.chunk.js",
+    "main.js.map": "/LillianLiu-CS185-React/static/js/main.0beccfa5.chunk.js.map",
     "runtime-main.js": "/LillianLiu-CS185-React/static/js/runtime-main.cc53a3f9.js",
     "runtime-main.js.map": "/LillianLiu-CS185-React/static/js/runtime-main.cc53a3f9.js.map",
-    "static/js/2.8144bc12.chunk.js": "/LillianLiu-CS185-React/static/js/2.8144bc12.chunk.js",
-    "static/js/2.8144bc12.chunk.js.map": "/LillianLiu-CS185-React/static/js/2.8144bc12.chunk.js.map",
+    "static/js/2.5e6047da.chunk.js": "/LillianLiu-CS185-React/static/js/2.5e6047da.chunk.js",
+    "static/js/2.5e6047da.chunk.js.map": "/LillianLiu-CS185-React/static/js/2.5e6047da.chunk.js.map",
     "index.html": "/LillianLiu-CS185-React/index.html",
-    "precache-manifest.2e42cd421d1e6543d591041a9c26ce1d.js": "/LillianLiu-CS185-React/precache-manifest.2e42cd421d1e6543d591041a9c26ce1d.js",
+    "precache-manifest.463b7d00cc670bec1c2da40190d5ce5b.js": "/LillianLiu-CS185-React/precache-manifest.463b7d00cc670bec1c2da40190d5ce5b.js",
     "service-worker.js": "/LillianLiu-CS185-React/service-worker.js",
-    "static/css/main.b53785af.chunk.css.map": "/LillianLiu-CS185-React/static/css/main.b53785af.chunk.css.map",
-    "static/js/2.8144bc12.chunk.js.LICENSE.txt": "/LillianLiu-CS185-React/static/js/2.8144bc12.chunk.js.LICENSE.txt",
+    "static/css/main.3df546ce.chunk.css.map": "/LillianLiu-CS185-React/static/css/main.3df546ce.chunk.css.map",
+    "static/js/2.5e6047da.chunk.js.LICENSE.txt": "/LillianLiu-CS185-React/static/js/2.5e6047da.chunk.js.LICENSE.txt",
     "static/media/App.css": "/LillianLiu-CS185-React/static/media/BG-tealfloral.6dcc1830.png",
     "static/media/BG_tp.jpg": "/LillianLiu-CS185-React/static/media/BG_tp.9d0630db.jpg",
     "static/media/art1.png": "/LillianLiu-CS185-React/static/media/art1.4dcd2f24.png",
@@ -29,8 +29,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.cc53a3f9.js",
-    "static/js/2.8144bc12.chunk.js",
-    "static/css/main.b53785af.chunk.css",
-    "static/js/main.464d7bde.chunk.js"
+    "static/js/2.5e6047da.chunk.js",
+    "static/css/main.3df546ce.chunk.css",
+    "static/js/main.0beccfa5.chunk.js"
   ]
 }
