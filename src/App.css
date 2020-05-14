@@ -100,7 +100,7 @@ li {
 }
 
 
-/* Gallery */
+/* Gallery and Movies */
 .image-grid {
   display: grid;
   /* The following line from https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/ */
@@ -115,6 +115,10 @@ li {
   object-fit: contain;
   justify-self: center;
   align-self: center;
+}
+.image-grid > .image:hover {
+  cursor: pointer;
+  opacity: 0.5;
 }
 .image-grid > .vert { grid-row: span 2; }
 

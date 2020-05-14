@@ -2,12 +2,21 @@
 import React, {Component} from 'react';
 import {SRLWrapper} from 'simple-react-lightbox'
 
+//for Simple React Lightbox
+const options = {
+  settings: {
+    disableWheelControls: true,
+    disableKeyboardControls: true
+  }
+}
+
 export class Gallery extends Component {
+
   render() {
     return (
       <div className='Gallery'>
         
-        <SRLWrapper>
+        <SRLWrapper options={options}>
           <div className="body-block">
             <div className="block-content">
               <div className="section-title"><h2>Photos</h2></div>
