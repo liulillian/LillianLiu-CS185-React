@@ -5,6 +5,7 @@ import Gallery from './Gallery';
 import Videos from './Videos';
 import AboutMe from './AboutMe';
 import Links from './Links';
+import Movies from './Movies';
 import GuestBook from './GuestBook';
 
 export class Body extends Component {
@@ -15,7 +16,8 @@ export class Body extends Component {
     else if (activeTabId == 3) return <Videos/>;
     else if (activeTabId == 4) return <AboutMe/>;
     else if (activeTabId == 5) return <Links/>;
-    else if (activeTabId == 6) return <GuestBook/>;
+    else if (activeTabId == 6) return <Movies/>;
+    else if (activeTabId == 7) return <GuestBook/>;
     else return <Home/>;
   }
   

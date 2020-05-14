@@ -21,7 +21,8 @@ export function App (props) {
     {id: 3, title: 'Videos'},
     {id: 4, title: 'About Me'},
     {id: 5, title: 'Links'},
-    {id: 6, title: 'Guest Book'}
+    {id: 6, title: 'Movies'},
+    {id: 7, title: 'Guest Book'}
   ]
   
   return (
