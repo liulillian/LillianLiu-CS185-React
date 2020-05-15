@@ -5,7 +5,7 @@ import {SRLWrapper} from 'simple-react-lightbox'
 //for Simple React Lightbox
 const options = {
   settings: {
-    disableWheelControls: true,
+    disableWheelControls: true, //this setting not working
     disableKeyboardControls: true
   }
 }
@@ -40,7 +40,7 @@ export function Movies (props) {
   }
   
   async function getMovieData(apikey,imdbid) {
-    const url = "http://www.omdbapi.com/?apikey="
+    const url = "https://www.omdbapi.com/?apikey="
       + apikey + "&i=" + imdbid;
     try {
       const response = await axios.get(url);
